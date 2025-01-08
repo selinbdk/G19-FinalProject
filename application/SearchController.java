@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 public class SearchController implements Initializable {
 
 	
+	private String username;
 	@FXML
     private Button backButton;
 
@@ -51,22 +52,35 @@ public class SearchController implements Initializable {
     void backButtonPressed(ActionEvent event) {
 
     	try {
-			Parent root = FXMLLoader.load(getClass().getResource("CashierView.fxml"));
-			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
 			
-			stage.setScene(scene);
-			stage.show();
+			Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
 			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierView.fxml"));
+	        Parent root = loader.load();
+	        CashierController cashierController = loader.getController();
+	        cashierController.displayName(this.username);
+	    
+	 
+
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 		
 
 
     }
 
+    
+    
+    public void setUsername(String username) {
+    	this.username=username;
+    	
+    }
    
    
 	@Override
@@ -206,8 +220,7 @@ public class SearchController implements Initializable {
 	        e.printStackTrace();
 	    }
 		
-    	//MovieDetailController movieDetailController = new MovieDetailController();
-    	//movieDetailController.displayMovieDetails(movie.getposterUrl(),movie.getSummaryFilePath());
+    	
     
 	}
     
