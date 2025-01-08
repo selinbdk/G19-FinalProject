@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" styleClass="scene-background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InventoryController">
+   <children>
+      <TableView fx:id="productsTable" layoutX="289.0" layoutY="51.0" prefHeight="698.0" prefWidth="616.0">
+        <columns>
+          <TableColumn fx:id="productNameColumn" prefWidth="360.0" text="PRODUCTS" />
+          <TableColumn fx:id="stockQuantityColumn" prefWidth="255.0" text="STOCK QUANTITIES" />
+        </columns>
+      </TableView>
+      <Label layoutX="1003.0" layoutY="51.0" text="UPDATE QUANTITIES" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="stockAmountField" layoutX="1074.0" layoutY="102.0" prefHeight="47.0" prefWidth="136.0" />
+      <Button fx:id="updateButton" layoutX="1095.0" layoutY="185.0" mnemonicParsing="false" onAction="#updateButtonPressed" text="UPDATE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="61.0" layoutY="710.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="39.0" prefWidth="70.0" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
