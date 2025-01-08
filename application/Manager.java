@@ -21,18 +21,26 @@ public class Manager extends User {
 
 	@Override
 	void displayInterface(ActionEvent event) {
+		
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("ManagerView.fxml"));
-			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
 			
-			stage.setScene(scene);
-			stage.show();
+			Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
 			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerView.fxml"));
+	        Parent root = loader.load();
+	        ManagerController managerController = loader.getController();
+	        managerController.displayName(username);
+	    
+	 
+
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 		
 	}
 

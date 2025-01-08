@@ -21,17 +21,25 @@ public class Cashier extends User {
 	@Override
 	void displayInterface(ActionEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("CashierView.fxml"));
-			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
 			
-			stage.setScene(scene);
-			stage.show();
+			Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
 			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierView.fxml"));
+	        Parent root = loader.load();
+	        CashierController cashierController = loader.getController();
+	        cashierController.displayName(username);
+	    
+	 
+
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+    	
 		
 	}
 

@@ -7,9 +7,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="100.0" pickOnBounds="true">
          <image>
@@ -26,10 +29,26 @@
             <Image url="@../../../../Desktop/clapperboard.png" />
          </image>
       </ImageView>
-      <Label alignment="BOTTOM_RIGHT" layoutX="219.0" layoutY="191.0" prefHeight="73.0" prefWidth="460.0" text="LOGIN" textFill="#b51313">
+      <Label alignment="BOTTOM_RIGHT" layoutX="219.0" layoutY="191.0" prefHeight="73.0" prefWidth="460.0" text="LOGIN">
          <font>
             <Font name="System Bold Italic" size="64.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="0.34285714285714286" endY="0.5333333333333333" startX="0.3238095238095239" startY="0.34761904761904766">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8552631735801697" green="0.8473440408706665" blue="0.8473440408706665" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.11764705926179886" green="0.1411764770746231" blue="0.18039216101169586" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <VBox alignment="CENTER" fillWidth="false" layoutX="146.0" layoutY="323.0" prefHeight="263.0" prefWidth="606.0" spacing="10.0">
          <children>
@@ -53,14 +72,14 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#loginButtonPressed" style="-fx-background-color: #b51313;" text="Login" textFill="WHITE">
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonPressed" styleClass="button-color" stylesheets="@application.css" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <ImageView fitHeight="165.0" fitWidth="114.0" layoutX="230.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
+      <ImageView fitHeight="226.0" fitWidth="150.0" layoutX="251.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" rotate="11.3">
          <image>
             <Image url="@../../../../Desktop/cameraman.png" />
          </image>

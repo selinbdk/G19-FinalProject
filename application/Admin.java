@@ -20,18 +20,26 @@ public class Admin extends User {
 	
 	@Override
 	void displayInterface(ActionEvent event) {
+		
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("AdminView.fxml"));
-			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
 			
-			stage.setScene(scene);
-			stage.show();
+			Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
 			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminView.fxml"));
+	        Parent root = loader.load();
+	        AdminController adminController = loader.getController();
+	        adminController.displayName(username);
+	    
+	 
+
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 		
 	}
 
